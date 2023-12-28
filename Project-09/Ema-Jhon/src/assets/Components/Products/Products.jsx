@@ -2,6 +2,10 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import './Products.css'
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+
 const Products = (props) => {
     // eslint-disable-next-line react/prop-types
  
@@ -19,7 +23,9 @@ const Products = (props) => {
             <p>Manufacturer: {seller}</p>
             <p>Ratings: {ratings}</p>
             </div>
-            <button onClick={()=>handleAddToCart(props.product)} className='button-cart'>Add to cart</button>
+            <button onClick={()=>handleAddToCart(props.product)} className='button-cart'>Add to cart
+            <FontAwesomeIcon icon={faShoppingCart}/>
+            </button>
         </div>
     );
 };
