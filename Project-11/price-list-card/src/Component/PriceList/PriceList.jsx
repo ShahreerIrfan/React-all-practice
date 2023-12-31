@@ -12,7 +12,7 @@ const PriceList = () => {
     },[])
     return (
         <div className='mx-12'>
-            <h3  className='text-5xl text-center bg-purple-300  text-purple-900 font-bold p-4 rounded-sm'>Awesome affordable price</h3>
+            <h3  className='text-3xl text-center bg-purple-300  text-purple-900 font-bold p-2 rounded-sm '>Awesome affordable price</h3>
             <div className='grid md:grid-cols-3 gap-3'>
             {
                 prices.map(price=><PriceCard
