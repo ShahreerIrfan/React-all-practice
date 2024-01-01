@@ -17,3 +17,7 @@ const PostDetails = ({post}) => {
 };
 
 export default PostDetails;
+
+
+
+// .......
