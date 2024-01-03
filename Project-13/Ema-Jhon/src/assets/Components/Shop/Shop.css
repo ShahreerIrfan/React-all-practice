@@ -1,16 +1,26 @@
-.shop-container{
+.shop-container {
     display: inline;
     display: grid;
     grid-template-columns: 4fr 1fr;
 
 }
-.product-container{
+
+.product-container {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 45px;
     margin: 50px;
 }
-.cart-container{
+
+.cart-container {
     position: sticky;
     top: 0;
+}
+
+.btn-proceed {
+    width: 100%;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: #F90;
 }

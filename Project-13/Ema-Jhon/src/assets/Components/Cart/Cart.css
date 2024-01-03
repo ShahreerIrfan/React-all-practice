@@ -1,9 +1,20 @@
-.cart{
+.cart {
     background-color: rgb(255, 200, 136);
     padding: 25px;
     position: sticky;
-    top:0;
+    top: 0;
 }
+
 .cart p {
     font-size: 17px;
+}
+
+.btn-clear-cart {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto;
+    border-radius: 4px;
+    background: #FF3030;
 }

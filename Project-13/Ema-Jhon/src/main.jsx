@@ -14,6 +14,7 @@ import Inventory from './assets/Components/Inventory/Inventory.jsx';
 import Login from './assets/Components/Login/Login.jsx';
 import Review from './assets/Components/Review/Review.jsx';
 import cartProductsLoader from './Loader/cartProductsLoader.js';
+import Checkout from './assets/Components/Checkout/Checkout.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: 'review',
         element: <Review></Review>
+      },
+      {
+        path:'checkout',
+        element: <Checkout></Checkout>
       }
     ]
   },
