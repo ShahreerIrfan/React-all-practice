@@ -32,7 +32,7 @@ const Shop = () => {
             if(addedProduct){
                 // Step-3 add quantity
                 addedProduct.quantity = quantity
-                console.log(addedProduct)
+                // console.log(addedProduct)
                 // Step 4 add the 'added product' in saved cart
                 savedCart.push(addedProduct)
             }
