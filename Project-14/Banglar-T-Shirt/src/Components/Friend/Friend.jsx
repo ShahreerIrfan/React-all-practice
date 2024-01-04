@@ -9,4 +9,4 @@ const Friend = () => {
     );
 };
 
-export default Friend; 
+export default Friend;
