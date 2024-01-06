@@ -26,25 +26,40 @@ const Login = () => {
             })
     }
 
+    const handleGitLogin = () => {
+        signInWithPopup(auth, gitHubProvider)
+            .then((result) => {
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
+                setUser(loggedInUser);
+            })
+            .catch((error) => {
+                console.log('Error', error.message);
+            });
+    };
 
-    const handleSignOut = () => [
+
+    const handleSignOut = () => {
         signOut(auth)
             .then(result => {
-                console.log(result)
-                setUser(null)
+                console.log(result);
+                setUser(null);
             })
             .catch(error => {
-                console.log(error)
-            })
-    ]
+                console.log(error);
+            });
+    };
 
     return (
         <div>
             {
                 user ?
-                <button onClick={handleSignOut}>SignOUt</button> :
-                <button onClick={handleGoogleSignIn}>Google Login</button> 
-                
+                    <button onClick={handleSignOut}>SignOUt</button> :
+                    <div>
+                        <button onClick={handleGoogleSignIn}>Google Login</button>
+                        <button onClick={handleGitLogin}>GithubLogin</button>
+                    </div>
+
             }
             {
                 user && <div>
