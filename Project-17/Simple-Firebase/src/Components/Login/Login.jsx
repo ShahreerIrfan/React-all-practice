@@ -3,15 +3,19 @@ import React, { useState } from 'react';
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
 import app from '../../firebase/firebase.init';
+import { GithubAuthProvider } from "firebase/auth";
+
+
 
 const Login = () => {
     const [user, setUser] = useState(null)
     const auth = getAuth(app);
     // console.log(app)
-    const provider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
 
     const handleGoogleSignIn = () => {
-        signInWithPopup(auth, provider)
+        signInWithPopup(auth, googleProvider)
             .then((resutl) => {
                 const loggedInUser = resutl.user;
                 console.log(loggedInUser)
