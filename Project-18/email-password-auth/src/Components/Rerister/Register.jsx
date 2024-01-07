@@ -1,5 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import app from '../../FireBase/FireBase.Config';
+
+const auth = getAuth(app);
 
 const Register = () => {
     const [email, SetEmail] = useState('');
@@ -21,6 +25,14 @@ const Register = () => {
         const password = event.target.password.value
         console.log(email)
         console.log(password)
+        createUserWithEmailAndPassword(auth,email,password)
+        .then(resutl=>{
+            const loggedUser = resutl.user;
+            console.log(loggedUser)
+        })
+        .catch(error=>{
+            console.error(error)
+        })
     }
 
     return (
