@@ -22,17 +22,22 @@ const Register = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const email = event.target.email.value;
-        const password = event.target.password.value
-        console.log(email)
-        console.log(password)
-        createUserWithEmailAndPassword(auth,email,password)
-        .then(resutl=>{
-            const loggedUser = resutl.user;
-            console.log(loggedUser)
-        })
-        .catch(error=>{
-            console.error(error)
-        })
+        const password = event.target.password.value;
+    
+        // Check if the password meets the minimum length requirement
+        if (password.length < 6) {
+            console.error("Password should be at least 6 characters");
+            return;
+        }
+    
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
 
     return (
