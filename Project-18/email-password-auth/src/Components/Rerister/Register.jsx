@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import app from '../../FireBase/FireBase.Config';
+import { Link } from 'react-router-dom';
 
 const auth = getAuth(app);
 
@@ -69,6 +70,7 @@ const Register = () => {
             </form>
             <p className='text-danger'>{error}</p>
             <p className='text-success'>{success}</p>
+            <p><small>Already have account ? <Link to="/login">Login</Link></small></p>
             
         </div>
     );
