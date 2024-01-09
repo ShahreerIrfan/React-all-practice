@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
-const AuthContext = useContext(null)
+import React, { createContext, useContext } from 'react';
+export const AuthContext = createContext(null)
 
-const AuthProvider = () => {
+const AuthProvider = ({children}) => {
     const user = {displayName : 'sagor nodi'}
     return (
         <AuthContext.Provider value={user}>
 
-
+            {children}
         </AuthContext.Provider>
     );
 };
