@@ -1,14 +1,26 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
+    const {user,createUser,signInUser} = useContext(AuthContext)
+    // console.log(signInUser)
     const hnadleLogin = (event)=>{
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email,password);
+        signInUser(email,password)
+        .then((result)=>{
+            const loggedUser = result.user;
+            console.log(loggedUser)
+            form.reset();
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
     }
     return (
         <div>
