@@ -24,11 +24,11 @@ const Header = () => {
                 <Link className='btn btn-ghost normal-case text-xl' to='/orders'>Orders</Link>
                 
                 {
-                    user ? <span><Link className='btn btn-ghost normal-case text-xl' to='/profile'>Profile</Link></span> : <span></span>
+                    user ? <span><Link className='btn btn-ghost normal-case text-xl' to='/profile'>Profile</Link></span> : <span className='btn btn-ghost normal-case text-xl'><Link to='/register'>Register</Link></span>
                 }
                 
                 {
-                    user ? <span>{user.email}<button onClick={handleLogOut} className="btn btn-xs ml-3">Sing-Out</button></span>:<Link to='/login'> <span><button className="btn btn-xs ml-3">Sing-In</button></span></Link>
+                    user ? <span>{user.email}<button onClick={handleLogOut} className="btn btn-xs ml-3">Sing-Out</button></span>:<Link  to='/login'> <span><button className="btn btn-xs ml-3">Sing-In</button></span></Link>
                 }
             </div>
         </div>
