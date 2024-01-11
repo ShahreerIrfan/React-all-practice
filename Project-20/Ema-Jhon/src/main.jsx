@@ -16,19 +16,20 @@ import Review from './assets/Components/Review/Review.jsx';
 import cartProductsLoader from './Loader/cartProductsLoader.js';
 import Checkout from './assets/Components/Checkout/Checkout.jsx';
 import Signup from './assets/Components/Singnup/Signup.jsx';
+import AuthProviders from './assets/Providers/AuthProviders.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
-    children:[
+    children: [
       {
-        path:'/',
+        path: '/',
         element: <Shop></Shop>
       },
       {
-        path : 'orders',
-        element : <Orders></Orders>,
+        path: 'orders',
+        element: <Orders></Orders>,
         loader: cartProductsLoader
       },
       {
@@ -40,15 +41,15 @@ const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path:'/signup',
-        element:<Signup></Signup>
+        path: '/signup',
+        element: <Signup></Signup>
       },
       {
         path: 'review',
         element: <Review></Review>
       },
       {
-        path:'checkout',
+        path: 'checkout',
         element: <Checkout></Checkout>
       }
     ]
@@ -59,6 +60,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProviders>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProviders>
   </React.StrictMode>,
 )
