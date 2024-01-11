@@ -1,16 +1,28 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import './Login.css'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
         <div className='form-container'>
-            <h3 className='form-title'>This is login page</h3>
+            <h3 className='form-title'>Login</h3>
             <form action="">
                 <div className="form-contron">
-                    <label htmlFor="">Email</label>
+                    <label htmlFor="email">Email</label>
                     <input type="email" name='email' required />
                 </div>
+                <div className="form-contron">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name='password' required />
+                </div>
+                <div className="form-contron">
+                    <button className='login-btn'>Login</button>
+                </div>
+                <div className="form-contron">
+                    <p>New to Ema-john?<span ><Link className='txt-orange' to='/signup'>Create New Account</Link></span></p>
+                </div>
+                
             </form>
         </div>
     );
