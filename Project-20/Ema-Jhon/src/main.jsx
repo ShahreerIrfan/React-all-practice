@@ -15,6 +15,7 @@ import Login from './assets/Components/Login/Login.jsx';
 import Review from './assets/Components/Review/Review.jsx';
 import cartProductsLoader from './Loader/cartProductsLoader.js';
 import Checkout from './assets/Components/Checkout/Checkout.jsx';
+import Signup from './assets/Components/Singnup/Signup.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <Login></Login>
+      },
+      {
+        path:'/signup',
+        element:<Signup></Signup>
       },
       {
         path: 'review',
