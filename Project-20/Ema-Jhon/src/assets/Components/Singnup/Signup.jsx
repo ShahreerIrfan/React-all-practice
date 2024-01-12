@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Singup.css';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 const Signup = () => {
+    const {createUser} = useContext(AuthContext)
     const [error,setError] = useState('')
     const handleSignUp = (event) =>{
         event.preventDefault()
@@ -12,13 +14,26 @@ const Signup = () => {
         const password = form.password.value;
         const confirm = form.confirm.value;
         console.log(email,password,confirm)
+
+        setError('')
+
         if(password!=confirm){
             setError(' Password and Confirm Password do not match. Please make sure both fields contain the same information.')
             return;
         }
         else if(password.length>6){
-            setError('Password length must be ')
+            setError('Password length must be 6 character')
         }
+        createUser(email,password)
+        .then((result)=>{
+            const loggedUser = result.user;
+            console.log(loggedUser)
+        })
+        .catch((error)=>{
+            setError(error)
+        })
+        form.reset()
+       
         
     }
     return (
@@ -38,7 +53,7 @@ const Signup = () => {
                     <input type="password" name='confirm' required />
                 </div>
                 <div className="form-contron">
-                    <button className='login-btn'>Login</button>
+                    <button className='login-btn'>Singup</button>
                 </div>
                 <div className="form-contron">
                     <p>Already have an acoount?<span ><Link className='txt-orange' to='/login'>Login</Link></span></p>

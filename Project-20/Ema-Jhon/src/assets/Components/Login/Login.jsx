@@ -1,13 +1,37 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 const Login = () => {
+    
+    const {singIn} = useContext(AuthContext)
+    const [error,setError] = useState('');
+
+    const handleLogin = (event)=>{
+        event.preventDefault()
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        if(password.length<6){
+            setError('Password length less than 6 character')
+            return;
+        }
+
+        singIn(email,password)
+        .then((result)=>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch((error)=>{
+            setError(error);
+        });
+    }
     return (
         <div className='form-container'>
             <h3 className='form-title'>Login</h3>
-            <form action="">
+            <form onSubmit={handleLogin} action="">
                 <div className="form-contron">
                     <label htmlFor="email">Email</label>
                     <input type="email" name='email' required />
