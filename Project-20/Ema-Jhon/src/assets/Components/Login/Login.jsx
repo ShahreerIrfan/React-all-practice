@@ -9,6 +9,8 @@ const Login = () => {
     const {singIn} = useContext(AuthContext)
     const [error,setError] = useState('');
 
+    const [show,setShow] = useState(false);
+
     const navigate = useNavigate()
 
     const loaction = useLocation()
@@ -46,7 +48,12 @@ const Login = () => {
                 </div>
                 <div className="form-contron">
                     <label htmlFor="password">Password</label>
-                    <input type="password" name='password' required />
+                    <input type={show? "text": "password"} name='password' required />
+                    <p onClick={()=>setShow(!show)}><small>
+                    {
+                        show ? <p>Hide password</p> : <p>Show password</p>
+                    }
+                    </small></p>
                 </div>
                 <div className="form-contron">
                     <button className='login-btn'>Login</button>
