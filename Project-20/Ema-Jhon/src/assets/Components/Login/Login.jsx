@@ -1,13 +1,20 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
 import './Login.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 
 const Login = () => {
     
     const {singIn} = useContext(AuthContext)
     const [error,setError] = useState('');
+
+    const navigate = useNavigate()
+
+    const loaction = useLocation()
+    console.log(loaction)
+
+    const from = loaction.state?.from?.pathname || '/';
 
     const handleLogin = (event)=>{
         event.preventDefault()
@@ -23,6 +30,7 @@ const Login = () => {
         .then((result)=>{
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate(from,{replace:true})
         })
         .catch((error)=>{
             setError(error);

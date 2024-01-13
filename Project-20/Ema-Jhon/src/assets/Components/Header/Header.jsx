@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 
 const Header = () => {
-    const {logOut} = useContext(AuthContext)
+    const {logOut,user} = useContext(AuthContext)
     const handleLogout =()=>{
         logOut();
         console.log('Logged Out')
@@ -25,6 +25,10 @@ const Header = () => {
             <Link to="/login">Login</Link>
             <Link to="/signup">Signup</Link>
             <Link onClick={handleLogout}>Logout</Link>
+            {
+                user && <p>{user.email}</p>
+            }
+            
             </div>
         </nav>
     );
